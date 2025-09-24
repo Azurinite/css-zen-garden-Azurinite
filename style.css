@@ -1,1 +1,43 @@
 /* Empty file for template. Remember to edit only this file and not the HTML file */
+
+/* Everything */
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 20px;
+    background-color: #c4e9ff;
+}
+
+/* The intro, the preamble, the Declaration of CSS Design */
+.intro {
+    text-align: center;
+    margin-bottom: 200px;
+
+    max-width: 50%;
+    margin: 60px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.intro header {
+    text-align: left;
+}
+
+/* All-encompassing article text */
+#zen-supporting{
+    position: absolute; /* This makes the text not be positioned relative to anything around it. It is repositionable with CSS rules. */
+    margin-right: 325px;
+}
+
+/* See all that at the side? Those links and the like? */
+.sidebar {
+    position: absolute;
+    margin-left: 529px;
+
+    padding: 20px; /* Padding makes the box. But you need to put things like background-color to see it*/
+    background-color: #ffffff;
+    box-shadow: inset;
+    border-radius: 15px;
+}
+
