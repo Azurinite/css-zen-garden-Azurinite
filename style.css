@@ -7,6 +7,13 @@ body {
     background-color: #c4e9ff;
 }
 
+.page-wrapper {
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    width: 750px;
+}
+
 /* The intro, the preamble, the Declaration of CSS Design */
 .intro {
     text-align: center;
@@ -15,7 +22,7 @@ body {
     max-width: 50%;
     margin: 60px auto;
     padding: 20px;
-    background-color: #ffffff;
+    background-image: url(images/scrollpaper.jpg) center/cover no-repeat;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
@@ -28,14 +35,14 @@ body {
 #zen-supporting{
     position: absolute; /* This makes the text not be positioned relative to anything around it. It is repositionable with CSS rules. */
     margin-right: 325px;
+    margin-left: 10px;
 }
 
 /* See all that at the side? Those links and the like? */
-.sidebar {
+aside {
     position: absolute;
-    margin-left: 529px;
 
-    padding: 20px; /* Padding makes the box. But you need to put things like background-color to see it*/
+    padding: 15px; /* Padding makes the box. But you need to put things like background-color to see it*/
     background-color: #ffffff;
     box-shadow: inset;
     border-radius: 15px;
