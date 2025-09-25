@@ -2,59 +2,112 @@
 
 /* Everything */
 body {
-    font: normal 70% Georgia, Palatino, Times, Times New Roman, serif;
-    margin: 20px;
-    background-color: #ffedbc;
-    
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
 }
 
 .page-wrapper {
-    width: 750px;
+    position: relative;
+    width: 800px;
     height: auto;
     margin-left: auto;
     margin-right: auto;
+
+    background-image: url(images/sun.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
 }
 
 /* General Elements */
 p {
     line-height: 1.6em;
     margin-bottom: 20px;
-    color: black;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+}
+
+a {
+    color: green;
+}
+
+h1, h2, h3 {
+    font-weight: bold;
+    line-height: 1.2em;
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
 }
 
 /* The intro, the preamble, the Declaration of CSS Design */
 .intro {
-    display: block;
     text-align: center;
-    margin-bottom: 200px;
+    width: 100%;
 
-    max-width: 50%;
-    margin: 60px auto;
-    padding: 20px;
-    background-image: url(images/scrollpaper.jpg) center/cover no-repeat;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    background-repeat: no-repeat;
+    /*background-image: url(images/solarsystem.jpg);*/
 }
 
-.intro header {
-    
+header {
+}
+
+header h1 {
+    font-size: 25px;
+}
+
+header h2 {
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+#zen-summary {
+
+    margin-bottom: 50%;
+}
+
+.preamble {
+    text-align: center;
 }
 
 /* All-encompassing article text */
 #zen-supporting{
-    position: absolute; /* This makes the text not be positioned relative to anything around it. It is repositionable with CSS rules. */
-    margin-right: 325px;
-    margin-left: 10px;
+    position: absolute;
+    margin-left: 40px;
+    margin-right: 265px;
+    padding: 30px;
+    border-radius: 20px;
+} 
+
+#zen-supporting:first-child {
+    position: absolute;
+    margin-left: px;
+}
+
+#zen-supporting h3 {
+    margin-right: 50px;
+    background-image: url(images/cloud.png) center/cover no-repeat;
 }
 
 /* See all that at the side? Those links and the like? */
 aside {
-    position: relative;
+    position: absolute;
 
     padding: 15px; /* Padding makes the box. But you need to put things like background-color to see it*/
-    background-color: #ffffff;
+    background-color: #000000;
     box-shadow: inset;
     border-radius: 15px;
-    margin-left: 529px;
+    margin-left: 525px;
+    margin-right: 10px;
 }
 
+
+
+aside h3 {
+    border-bottom: 0;
+}
+
+/* And this is at the bottom */
+/* #zen-supporting {
+    background-image: url(images/CityLandscape.png);
+}*/
