@@ -1,11 +1,13 @@
 /* Empty file for template. Remember to edit only this file and not the HTML file */
 
+/* Nasalization Font */
+
 /* Everything */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Courier New", Courier, monospace;
     margin: 0;
     padding: 0;
-    background-color: #000000;
+    background-image: url(images/star-background.jpg);
 }
 
 .page-wrapper {
@@ -15,16 +17,16 @@ body {
     margin-left: auto;
     margin-right: auto;
 
-    background-image: url(images/sun.webp);
+    background-image: url(images/solarsystem.jpg);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 50%;
+    background-size: 80%;
 }
 
 /* General Elements */
 p {
     line-height: 1.6em;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     color: rgb(255, 255, 255);
     font-size: 15px;
 }
@@ -33,8 +35,18 @@ a {
     color: green;
 }
 
+a:hover {
+    text-decoration: underline;
+}
+
+li {
+    color: white;
+    margin-bottom: 8px;
+}
+
 h1, h2, h3 {
     font-weight: bold;
+    font-size: 25px;
     line-height: 1.2em;
     border-radius: 20px;
     color: rgb(255, 255, 255);
@@ -42,51 +54,120 @@ h1, h2, h3 {
 
 /* The intro, the preamble, the Declaration of CSS Design */
 .intro {
-    text-align: center;
     width: 100%;
-
-    background-repeat: no-repeat;
-    /*background-image: url(images/solarsystem.jpg);*/
 }
 
 header {
+    display: flexbox;
+    align-content: center;
+    background-image: url(images/astronaut.png);
+    background-repeat: no-repeat;
+    background-position: top left;
+    height: 150px;
+    width: 100%;
+    text-indent: 300px;
+    border: 4px white solid;
+    border-radius: 20px;
+    margin: 0;
 }
 
 header h1 {
-    font-size: 25px;
+    font-size: 40px;
 }
 
 header h2 {
-    font-size: 25px;
+    font-size: 30px;
     margin-bottom: 30px;
 }
 
 #zen-summary {
-
+    border: 4px solid white;
+    border-radius: 20px;
     margin-bottom: 50%;
 }
 
+#zen-summary p {
+    margin: 10px;
+}
+
 .preamble {
-    text-align: center;
+
 }
 
 /* All-encompassing article text */
-#zen-supporting{
+#zen-supporting {
     position: absolute;
-    margin-left: 40px;
-    margin-right: 265px;
+    margin-left: 0px;
+    margin-right: 295px;
     padding: 30px;
     border-radius: 20px;
-} 
-
-#zen-supporting:first-child {
-    position: absolute;
-    margin-left: px;
+    border: 2px solid green;
 }
 
 #zen-supporting h3 {
-    margin-right: 50px;
-    background-image: url(images/cloud.png) center/cover no-repeat;
+    text-align: center;
+    font-size: 30px;
+    line-height: 200%;
+    text-wrap: wrap;
+    margin-left: 45%;
+}
+
+#zen-supporting p {
+    text-indent: 10%;
+}
+
+.explanation {
+    background-image: url(images/earth.png);
+    background-repeat: no-repeat;
+    background-position: top -7px left;
+    background-size: 40%;
+}
+
+.explanation h3 {
+    padding-top: 6%;
+    margin-bottom: 10%;
+    line-height: 0%;
+}
+
+.participation {
+    background-image: url(images/mars.png);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 35%; 
+    
+}
+
+.participation h3 {
+    padding-top: 10%;
+    margin-bottom: 15%;
+    line-height: 0%;
+}
+
+.benefits {
+    background-image: url(images/saturn.png);
+    background-repeat: no-repeat;
+    background-position: top -40px left -50px;
+    background-size: 80%; 
+}
+
+.benefits h3 {
+    padding-top: 10%;
+    margin-bottom: 15%;
+    line-height: 0%;
+    margin-right: -10%;
+}
+
+.requirements {
+    background-image: url(images/uranus.png);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 45%; 
+}
+
+.requirements h3 {
+    padding-top: 16.5%;
+    margin-bottom: 15%;
+    line-height: 0%;
 }
 
 /* See all that at the side? Those links and the like? */
@@ -98,7 +179,6 @@ aside {
     box-shadow: inset;
     border-radius: 15px;
     margin-left: 525px;
-    margin-right: 10px;
 
     border: 2px solid green;
 }
@@ -112,6 +192,18 @@ aside > div > div {
 
 aside h3 {
     border-bottom: 0;
+    padding-left: 7.5%;
+}
+
+aside li a {
+    text-decoration: none;
+    color: #00ff00;
+    font-size: 15px;
+}
+
+aside li a:nth-child(2) {
+    color: #fff700;
+    font-size: 15px;
 }
 
 /* And this is at the bottom */
