@@ -99,9 +99,16 @@ aside {
     border-radius: 15px;
     margin-left: 525px;
     margin-right: 10px;
+
+    border: 2px solid green;
 }
 
-
+aside > div > div {
+    border: 2px solid white;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+}
 
 aside h3 {
     border-bottom: 0;
