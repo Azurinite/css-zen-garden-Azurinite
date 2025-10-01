@@ -1,13 +1,18 @@
 /* Empty file for template. Remember to edit only this file and not the HTML file */
 
-/* Nasalization Font */
+/* Keyframes */
+@keyframes oscillate {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
 
 /* Everything */
 * {
     font-family: "Courier New", Courier, monospace;
 }
 
-body {
+:root {
     margin: 0;
     padding: 0;
     background-image: url(images/star-background.jpg);
@@ -26,10 +31,8 @@ div.page-wrapper {
     background-size: 80%;
 }
 
-[title~="Cascading Style Sheets"] {
-    font-size: 20px;
-    color: rgb(225, 0, 86);
-    text-decoration: underline;
+[title*="Cascading Style Sheets"] {
+    
 }
 
 /* General Elements */
@@ -40,16 +43,32 @@ p {
     font-size: 15px;
 }
 
+p:active, h3:active {
+    color: rgb(170, 170, 170);
+    transition: color 0.1s ease;
+}
+
+
+::selection {
+    background: rgb(32, 186, 32);
+    color: black;
+}
+
 a:visited {
     color: rgb(198, 198, 198);
 }
 
 a:active {
-    color: rgb(255, 0, 0);  
+    color: rgb(112, 112, 112);  
+}
+
+a:focus {
+    text-decoration: underline;
+
 }
 
 a:link {
-    color: rgb(32, 186, 32);
+    color: rgb(21, 195, 21);
 }
 
 a:hover {
@@ -61,7 +80,7 @@ li {
     margin-bottom: 8px;
 }
 
-h1, h2, h3 {
+h1, h2, h3:only-of-type {
     font-weight: bold;
     font-size: 25px;
     line-height: 1.2em;
@@ -74,7 +93,6 @@ h1, h2, h3 {
 }
 
 header {
-    display: flexbox;
     align-content: center;
     background-image: url(images/astronaut.png);
     background-repeat: no-repeat;
@@ -98,20 +116,17 @@ header h2:last-child {
     line-height: 80%;
 }
 
-#zen-summary {
+header + div {
     border-bottom: 4px solid white;
     border-left: 4px solid white;
     border-right: 4px solid white;
     width: 100%;
     position: relative;
     border-radius: 20px;
-}
-
-#zen-summary {
     padding: 3px;
 }
 
-#zen-summary [href="/examples/index"] {
+#zen-summary a[href$="/index"] {
     text-decoration: dotted underline;
     color: #ff0000;
     font-size: 18px;
@@ -124,13 +139,41 @@ header h2:last-child {
 }
 
 .preamble {
-    background-image: url(images/satellite.png);
-    background-repeat: no-repeat;
-    background-position: bottom right;
-    background-size: 50%;
+    margin-bottom: 50px
 }
 
-.preamble p {
+/* Future note: make comets if you've got the time! */
+:empty[class="extra1"]::after {
+    content: ''; /* Essential for pseudo-elements to be rendered */
+    position: absolute;
+    top: 71%;
+    width: 100%;
+    height: 100%;
+    background-image: url(images/satellite.png);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: top right;
+    z-index: -1;
+
+    animation: oscillate 4s ease-in-out infinite;
+}
+
+.preamble::after {
+    content: ''; /* Essential for pseudo-elements to be rendered */
+    position: absolute;
+    top: 71%;
+    width: 100%;
+    height: 100%;
+    background-image: url(images/satellite.png);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: top right;
+    z-index: -1;
+
+    animation: oscillate 4s ease-in-out infinite;
+}
+
+.preamble :not(abbr) {
     margin-right: 50%;
 }
 
@@ -138,18 +181,28 @@ header h2:last-child {
     margin-top: 600px;
 }
 
+.preamble p:first-of-type > abbr, .preamble P:nth-of-type(2) > abbr {
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: help;
+}
+
+.preamble p:nth-last-of-type(1) {
+    margin-bottom: 0;
+}
+
 /* All-encompassing article text */
 .main.supporting {
     position: absolute;
     margin-left: 0px;
     margin-right: 375px;
-    padding: 30px;
+    padding: 20px;
     border-radius: 20px;
     border: 2px solid green;
 }
 
-#zen-supporting[role] p:active {
-
+header ~ div {
+    padding: 15px;
 }
 
 #zen-supporting h3 {
@@ -164,20 +217,36 @@ header h2:last-child {
     text-indent: 10%;
 }
 
-.main.supporting div:first-child {
+.main.supporting div:first-child::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
     background-image: url(images/earth.png);
     background-repeat: no-repeat;
     background-position: top -7px left;
     background-size: 40%;
+
+    animation: oscillate 4s ease-in-out infinite;
 }
 
 .explanation > h3:first-of-type {
-    padding-top: 6%;
-    margin-bottom: 15%;
+    padding-top: 10%;
+    margin-bottom: 10%;
     line-height: 0%;
 }
 
-#zen-supporting div:nth-child(2) {
+#zen-supporting div:nth-child(2)::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    animation: oscillate 4s ease-in-out infinite;
+
     background-image: url(images/mars.png);
     background-repeat: no-repeat;
     background-position: top left 25px;
@@ -190,24 +259,40 @@ header h2:last-child {
     line-height: 0%;
 }
 
-#zen-supporting div:nth-last-child(3) {
+#zen-supporting div:nth-last-child(3)::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    animation: oscillate 4s ease-in-out infinite;
+
     background-image: url(images/saturn.png);
     background-repeat: no-repeat;
-    background-position: top -40px left -50px;
+    background-position: top -60px left -60px;
     background-size: 80%; 
 }
 
 .benefits > h3 {
-    padding-top: 10%;
-    margin-bottom: 20%;
+    padding-top: 15%;
+    margin-bottom: 12%;
     line-height: 0%;
-    margin-right: -10%;
+    margin-right: -15%;
 }
 
-.requirements {
+.requirements::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    animation: oscillate 4s ease-in-out infinite;
+
     background-image: url(images/uranus.png);
     background-repeat: no-repeat;
-    background-position: top left 30px;
+    background-position: top left 10px;
     background-size: 45%; 
 }
 
@@ -242,6 +327,27 @@ aside h3 {
     padding-left: 7.5%;
 }
 
+aside [class~=select]::before {
+    content: "►  ";
+    color: #00ff00;
+    font-size: 15px;
+    font-size: 15px;
+}
+
+aside [class|=archives]::before {
+    content: "►  ";
+    color: #00ff00;
+    font-size: 15px;
+    font-size: 15px;
+}
+
+aside [class^=reso]::before {
+    content: "►  ";
+    color: #00ff00;
+    font-size: 15px;
+    font-size: 15px;
+}
+
 aside li a {
     text-decoration: none;
     color: #00ff00;
@@ -250,6 +356,11 @@ aside li a {
 
 aside li a:nth-child(2) {
     color: #fff700;
+    font-size: 15px;
+}
+
+[role="navigation"] ul li a:only-child, .zen-resources ul li a:only-child {
+    color: #da0000;
     font-size: 15px;
 }
 
