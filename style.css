@@ -367,6 +367,7 @@ aside li a:nth-child(2) {
 
 
 /* -- Extra effects with empty divs --  */
+/* Note: Get an asteroid field */
 :empty[class="extra1"]::after {
     content: ''; 
     position: absolute;
