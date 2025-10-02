@@ -121,6 +121,7 @@ header > h1 { /* "CSS Zen Garden" */
 header h2:last-child { /* "The Beauty of CSS Design" */
     font-size: 35px;
     line-height: 80%;
+    letter-spacing: 2px;
 }
 
 header + div { /* Box directly below headings */
