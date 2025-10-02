@@ -7,7 +7,14 @@
     100% { transform: translateY(0px); }
 }
 
-/* Everything */
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+
+/* -- Everything --*/
 * {
     font-family: "Courier New", Courier, monospace;
 }
@@ -23,19 +30,17 @@ div.page-wrapper {
     width: 1000px;
     height: auto;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto; /* Personal note: keeping these auto keeps the page centered */
 
     background-image: url(images/solarsystem.jpg);
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center 45%;
     background-size: 80%;
 }
 
-[title*="Cascading Style Sheets"] {
-    
-}
 
-/* General Elements */
+
+/* -- General Elements --*/
 p {
     line-height: 1.6em;
     margin-bottom: 15px;
@@ -47,7 +52,6 @@ p:active, h3:active {
     color: rgb(170, 170, 170);
     transition: color 0.1s ease;
 }
-
 
 ::selection {
     background: rgb(32, 186, 32);
@@ -64,7 +68,7 @@ a:active {
 
 a:focus {
     text-decoration: underline;
-
+    font-weight: bold;
 }
 
 a:link {
@@ -87,11 +91,14 @@ h1, h2, h3:only-of-type {
     color: rgb(255, 255, 255);
 }
 
-/* The intro, the preamble, the Declaration of CSS Design */
+
+
+/*  -- Introduction Containers -- */
 .intro {
     width: 100%;
 }
 
+/* The header at the top */
 header {
     align-content: center;
     background-image: url(images/astronaut.png);
@@ -105,27 +112,29 @@ header {
     margin: 0;
 }
 
-header > h1 {
+header > h1 { /* "CSS Zen Garden" */
     font-size: 60px;
     margin-bottom: 0;
     line-height: 50%;
 }
 
-header h2:last-child {
-    font-size: 40px;
+header h2:last-child { /* "The Beauty of CSS Design" */
+    font-size: 35px;
     line-height: 80%;
 }
 
-header + div {
+header + div { /* Box directly below headings */
     border-bottom: 4px solid white;
     border-left: 4px solid white;
     border-right: 4px solid white;
-    width: 100%;
+    width: 97%; /* This looks kinda strange.. this is needed to align the right side of the boxes.*/
     position: relative;
     border-radius: 20px;
-    padding: 3px;
+    margin-top: -4px;
+    margin-bottom: 50%;
 }
 
+/* Below are recoloring for html and css file links in heading */
 #zen-summary a[href$="/index"] {
     text-decoration: dotted underline;
     color: #ff0000;
@@ -138,28 +147,15 @@ header + div {
     font-size: 18px;
 }
 
+
+
+/* -- The Road to Enlightenment paragraph -- */
 .preamble {
     margin-bottom: 50px
 }
 
-/* Future note: make comets if you've got the time! */
-:empty[class="extra1"]::after {
-    content: ''; /* Essential for pseudo-elements to be rendered */
-    position: absolute;
-    top: 71%;
-    width: 100%;
-    height: 100%;
-    background-image: url(images/satellite.png);
-    background-size: 50%;
-    background-repeat: no-repeat;
-    background-position: top right;
-    z-index: -1;
-
-    animation: oscillate 4s ease-in-out infinite;
-}
-
 .preamble::after {
-    content: ''; /* Essential for pseudo-elements to be rendered */
+    content: '';
     position: absolute;
     top: 71%;
     width: 100%;
@@ -168,7 +164,7 @@ header + div {
     background-size: 50%;
     background-repeat: no-repeat;
     background-position: top right;
-    z-index: -1;
+    z-index: -2;
 
     animation: oscillate 4s ease-in-out infinite;
 }
@@ -177,22 +173,30 @@ header + div {
     margin-right: 50%;
 }
 
-.preamble h3 {
-    margin-top: 600px;
+.preamble h3::first-line {
+    font-size: 30px;
+    font-weight: bold;
 }
 
+/* Abbreviation decorations */
 .preamble p:first-of-type > abbr, .preamble P:nth-of-type(2) > abbr {
     text-decoration: underline;
-    font-weight: bold;
     cursor: help;
 }
 
-.preamble p:nth-last-of-type(1) {
+.preamble p:nth-last-of-type(1) { /* Reduce extra space below the preamble */
     margin-bottom: 0;
 }
 
-/* All-encompassing article text */
-.main.supporting {
+header ~ div { /* Container directly below header */
+    padding: 15px;
+}
+
+
+
+/* -- All-encompassing article text -- */
+
+.main.supporting { /* Entire Container of article text */
     position: absolute;
     margin-left: 0px;
     margin-right: 375px;
@@ -201,11 +205,7 @@ header + div {
     border: 2px solid green;
 }
 
-header ~ div {
-    padding: 15px;
-}
-
-#zen-supporting h3 {
+#zen-supporting h3 { /* General CSS for the headings of each section */
     text-align: center;
     font-size: 35px;
     line-height: 200%;
@@ -213,10 +213,12 @@ header ~ div {
     margin-left: 45%;
 }
 
-#zen-supporting p {
-    text-indent: 10%;
+#zen-supporting p::first-letter { /* Indent */
+    padding-left: 10%;
 }
 
+/* For each section below, the CSS of the section is listed, then the CSS for the section's heading */
+/* Explanation: So What Is This About? */
 .main.supporting div:first-child::before {
     content: '';
     position: absolute;
@@ -238,6 +240,7 @@ header ~ div {
     line-height: 0%;
 }
 
+/* Participation */
 #zen-supporting div:nth-child(2)::before {
     content: '';
     position: absolute;
@@ -253,12 +256,14 @@ header ~ div {
     background-size: 35%; 
 }
 
+
 .participation > h3 {
     padding-top: 10%;
     margin-bottom: 20%;
     line-height: 0%;
 }
 
+/* Benefits */
 #zen-supporting div:nth-last-child(3)::before {
     content: '';
     position: absolute;
@@ -281,6 +286,7 @@ header ~ div {
     margin-right: -15%;
 }
 
+/* Requirements */
 .requirements::before {
     content: '';
     position: absolute;
@@ -302,12 +308,13 @@ header ~ div {
     line-height: 0%;
 }
 
-/* See all that at the side? Those links and the like? */
+
+
+/* -- Sidebar -- */
 aside {
     position: absolute;
 
-    padding: 15px; /* Padding makes the box. But you need to put things like background-color to see it*/
-    background-color: #000000;
+    padding: 15px; 
     box-shadow: inset;
     border-radius: 15px;
     margin-left: 645px;
@@ -315,8 +322,9 @@ aside {
     border: 2px solid green;
 }
 
+/* White border above each section in the sidebar */
 aside > div > div {
-    border: 2px solid white;
+    border-top: 4px solid white;
     padding: 5px;
     margin-bottom: 10px;
     border-radius: 15px;
@@ -327,20 +335,9 @@ aside h3 {
     padding-left: 7.5%;
 }
 
-aside [class~=select]::before {
-    content: "►  ";
-    color: #00ff00;
-    font-size: 15px;
-    font-size: 15px;
-}
-
-aside [class|=archives]::before {
-    content: "►  ";
-    color: #00ff00;
-    font-size: 15px;
-    font-size: 15px;
-}
-
+/* Makes the green arrow before each heading in the sidebar */
+aside [class~=select]::before, 
+aside [class|=archives]::before,
 aside [class^=reso]::before {
     content: "►  ";
     color: #00ff00;
@@ -348,23 +345,41 @@ aside [class^=reso]::before {
     font-size: 15px;
 }
 
+/* Design links green */
 aside li a {
     text-decoration: none;
     color: #00ff00;
     font-size: 15px;
 }
 
+/* Author links yellow */
 aside li a:nth-child(2) {
     color: #fff700;
     font-size: 15px;
 }
 
-[role="navigation"] ul li a:only-child, .zen-resources ul li a:only-child {
-    color: #da0000;
+/* Makes Archives and Resources text red */
+[role*="navigation"] ul li a:only-child, .zen-resources ul li a:only-child {
+    color: red;
     font-size: 15px;
 }
 
-/* And this is at the bottom */
-/* #zen-supporting {
-    background-image: url(images/CityLandscape.png);
-}*/
+
+
+/* -- Extra effects with empty divs --  */
+:empty[class="extra1"]::after {
+    content: ''; 
+    position: absolute;
+    top: 230%;
+    left: 65%;
+    width: 500px;
+    height: 500px;
+    background-image: url(images/asteroid.png);
+    background-size: 20%;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 2;
+
+    animation: oscillate 4s ease-in-out infinite;
+    animation: rotate 25s linear infinite;
+}
