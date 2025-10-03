@@ -442,7 +442,7 @@ aside li a:nth-child(2) {
     content: ''; 
     position: absolute;
     top: 2650px;
-    left: 47.5%;
+    right: -25vh;
     width: 900px;
     height: 900px;
     background-image: url(images/tetheredastronaut.png);
@@ -459,15 +459,15 @@ aside li a:nth-child(2) {
 /* Making pictures disappear when screen size is too small to allocate them */
 @media screen and (max-width: 900px){
     :empty[class^="extra1"]::after, 
-    :empty[class^="extra4"]::after, 
-    :empty[class^="extra5"]::after {
+    :empty[class^="extra4"]::after {
         display: none;
     }
 }
 
 @media screen and (max-width: 1200px){
     :empty[class^="extra2"]::after, 
-    :empty[class^="extra3"]::after {
+    :empty[class^="extra3"]::after,
+    :empty[class^="extra5"]::after {
         display: none;
     }
 }
