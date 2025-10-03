@@ -3,7 +3,7 @@
 /* Keyframes */
 @keyframes oscillate {
     0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-15px); }
     100% { transform: translateY(0px); }
 }
 
@@ -53,7 +53,7 @@ p:active, h3:active {
     transition: color 0.1s ease;
 }
 
-::selection {
+::selection { /* When text is highlighted */
     background: rgb(32, 186, 32);
     color: black;
 }
@@ -62,11 +62,11 @@ a:visited {
     color: rgb(198, 198, 198);
 }
 
-a:active {
+a:active { /* When link is clicked */
     color: rgb(112, 112, 112);  
 }
 
-a:focus {
+a:focus { /* When link is currently being tabbed to */
     text-decoration: underline;
     font-weight: bold;
 }
@@ -94,12 +94,9 @@ h1, h2, h3:only-of-type {
 
 
 /*  -- Introduction Containers -- */
-.intro {
-    width: 100%;
-}
 
 /* The header at the top */
-header {
+[class][class="intro"] > header {
     align-content: center;
     background-image: url(images/astronaut.png);
     background-repeat: no-repeat;
@@ -151,20 +148,21 @@ header + div { /* Box directly below headings */
 
 
 /* -- The Road to Enlightenment paragraph -- */
-.preamble {
+.intro .preamble { /*Just here to add some space btwn preamble and article text */
     margin-bottom: 50px
 }
 
 .preamble::after {
     content: '';
     position: absolute;
-    top: 71%;
+    top: 35%;
+    left: 25%;
     width: 100%;
     height: 100%;
     background-image: url(images/satellite.png);
     background-size: 50%;
     background-repeat: no-repeat;
-    background-position: top right;
+    background-position: center;
     z-index: -2;
 
     animation: oscillate 4s ease-in-out infinite;
@@ -196,7 +194,6 @@ header ~ div { /* Container directly below header */
 
 
 /* -- All-encompassing article text -- */
-
 .main.supporting { /* Entire Container of article text */
     position: absolute;
     margin-left: 0px;
@@ -225,11 +222,13 @@ header ~ div { /* Container directly below header */
     position: absolute;
     width: 100%;
     height: 100%;
+    bottom: 1230px;
+    right: 160px;
     z-index: -1;
 
     background-image: url(images/earth.png);
     background-repeat: no-repeat;
-    background-position: top -7px left;
+    background-position: center;
     background-size: 40%;
 
     animation: oscillate 4s ease-in-out infinite;
@@ -247,18 +246,20 @@ header ~ div { /* Container directly below header */
     position: absolute;
     width: 100%;
     height: 100%;
+    bottom: 600px;
+    right: 160px;
     z-index: -1;
 
     animation: oscillate 4s ease-in-out infinite;
 
     background-image: url(images/mars.png);
     background-repeat: no-repeat;
-    background-position: top left 25px;
+    background-position: center;
     background-size: 35%; 
 }
 
 
-.participation > h3 {
+.participation h3 {
     padding-top: 10%;
     margin-bottom: 20%;
     line-height: 0%;
@@ -270,14 +271,16 @@ header ~ div { /* Container directly below header */
     position: absolute;
     width: 100%;
     height: 100%;
+    top: 85px;
+    right: 110px;
     z-index: -1;
 
     animation: oscillate 4s ease-in-out infinite;
 
     background-image: url(images/saturn.png);
     background-repeat: no-repeat;
-    background-position: top -60px left -60px;
-    background-size: 80%; 
+    background-position: center;
+    background-size: 80%;
 }
 
 .benefits > h3 {
@@ -293,13 +296,15 @@ header ~ div { /* Container directly below header */
     position: absolute;
     width: 100%;
     height: 100%;
+    top: 515px;
+    right: 150px;
     z-index: -1;
 
     animation: oscillate 4s ease-in-out infinite;
 
     background-image: url(images/uranus.png);
     background-repeat: no-repeat;
-    background-position: top left 10px;
+    background-position: center;
     background-size: 45%; 
 }
 
@@ -307,7 +312,7 @@ header ~ div { /* Container directly below header */
     padding-top: 16.5%;
     margin-bottom: 15%;
     line-height: 0%;
-}
+} 
 
 
 
@@ -331,6 +336,7 @@ aside > div > div {
     border-radius: 15px;
 }
 
+/* Header padding */
 aside h3 {
     border-bottom: 0;
     padding-left: 7.5%;
@@ -346,14 +352,14 @@ aside [class^=reso]::before {
     font-size: 15px;
 }
 
-/* Design links green */
+/* Makes design links green */
 aside li a {
     text-decoration: none;
     color: #00ff00;
     font-size: 15px;
 }
 
-/* Author links yellow */
+/* Makes author links yellow */
 aside li a:nth-child(2) {
     color: #fff700;
     font-size: 15px;
@@ -361,26 +367,92 @@ aside li a:nth-child(2) {
 
 /* Makes Archives and Resources text red */
 [role*="navigation"] ul li a:only-child, .zen-resources ul li a:only-child {
-    color: red;
+    color: rgb(255, 0, 0);
     font-size: 15px;
 }
 
 
 
 /* -- Extra effects with empty divs --  */
-/* Note: Get an asteroid field */
+
+/* Tethered Astronaut */
+:empty[class="extra5"]::after {
+    content: ''; 
+    position: absolute;
+    top: 275%;
+    left: 47.5%;
+    width: 900px;
+    height: 900px;
+    background-image: url(images/tetheredastronaut.png);
+    background-size: 62.5%;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -3;
+
+    animation: oscillate 4s ease-in-out infinite;
+}
+
+/* Asteroids */
 :empty[class="extra1"]::after {
     content: ''; 
     position: absolute;
-    top: 230%;
-    left: 65%;
+    top: 210%;
+    left: 45%;
+    width: 700px;
+    height: 700px;
+    background-image: url(images/asteroid2.webp);
+    background-size: 25%;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -2;
+
+    animation: rotate 25s linear infinite;
+}
+
+:empty[class="extra2"]::after {
+    content: ''; 
+    position: absolute;
+    top: 245%;
+    left: 67.5%;
     width: 500px;
     height: 500px;
     background-image: url(images/asteroid.png);
-    background-size: 20%;
+    background-size: 25%;
     background-repeat: no-repeat;
     background-position: center;
-    z-index: 2;
+    z-index: -2;
+
+    animation: rotate 25s linear infinite;
+}
+
+:empty[class="extra3"]::after {
+    content: ''; 
+    position: absolute;
+    top: 335%;
+    left: 36.5%;
+    width: 900px;
+    height: 900px;
+    background-image: url(images/asteroid4.png);
+    background-size: 15%;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -2;
+
+    animation: rotate 25s linear infinite;
+}
+
+:empty[class="extra4"]::after {
+    content: ''; 
+    position: absolute;
+    top: 365%;
+    left: 55%;
+    width: 900px;
+    height: 900px;
+    background-image: url(images/asteroid3.png);
+    background-size: 18%;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -2;
 
     animation: rotate 25s linear infinite;
 }
