@@ -22,7 +22,7 @@
 :root {
     margin: 0;
     padding: 0;
-    background-image: url(images/spacebackground.jpg);
+    background-image: url(images/spaceybackground.png);
 }
 
 div.page-wrapper {
@@ -127,7 +127,7 @@ header + div { /* Box directly below headings */
     position: relative;
     border-radius: 20px;
     margin-top: -4px;
-    margin-bottom: 55%;
+    margin-bottom: 50%;
 }
 
 /* Below are recoloring for html and css file links in heading */
