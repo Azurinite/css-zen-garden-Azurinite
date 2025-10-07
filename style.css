@@ -38,8 +38,6 @@ div.page-wrapper {
     background-size: 80%;
 }
 
-
-
 /* -- General Elements --*/
 p {
     line-height: 1.6em;
@@ -95,11 +93,13 @@ h1, h2, h3:only-of-type {
 
 /* The header at the top */
 [class][class="intro"] > header {
+    display: grid;
+    grid: auto auto / 1fr; /* Grid for easy text centering */
     align-content: center;
     background-image: url(images/astronaut.png);
     background-repeat: no-repeat;
     background-position: top left;
-    height: 150px;
+    height: auto;
     width: 100%;
     text-indent: 300px;
     border: 4px white solid;
@@ -442,7 +442,7 @@ aside li a:nth-child(2) {
     content: ''; 
     position: absolute;
     top: 2650px;
-    right: -25vh;
+    right: -22vw;
     width: 900px;
     height: 900px;
     background-image: url(images/tetheredastronaut.png);
@@ -469,5 +469,70 @@ aside li a:nth-child(2) {
     :empty[class^="extra3"]::after,
     :empty[class^="extra5"]::after {
         display: none;
+    }
+}
+
+/* If the screen size is too small to fit all the cool stuff I put, then simplify and crush everything */
+@media screen and (max-width: 1000px) {
+    div.page-wrapper {
+        width: 80%;
+        background-image: none;
+    }
+
+    [class][class="intro"] > header {
+        background-image: none;
+    }
+    header > h1, header > h2{
+        text-indent: 2%;
+        line-height: 100%;
+    }
+
+    header + div {
+        margin-bottom: 0%;
+        width: auto;
+    }
+
+    .preamble :not(abbr) {
+        margin-right: 0%;
+    }
+    
+    .preamble h3::first-line {
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .preamble::after{
+        display: none;
+    }
+
+
+
+    .main.supporting div:first-child::before,
+    #zen-supporting div:nth-child(2)::before,
+    #zen-supporting div:nth-last-child(3)::before,
+    .requirements::before
+     {
+        display: none;
+    }
+    
+    #zen-supporting h3,
+    .explanation > h3:first-of-type,
+    .participation h3,
+    .benefits > h3,
+    .requirements > h3 {
+        margin: 0;
+    } 
+    
+    
+    
+    /* -- Sidebar -- */
+    aside {
+        position: absolute;
+    
+        padding: 15px; 
+        box-shadow: inset;
+        border-radius: 15px;
+        margin-left: 5%;
+    
+        border: 2px solid green;
     }
 }
