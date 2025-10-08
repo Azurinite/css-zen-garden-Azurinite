@@ -442,7 +442,7 @@ aside li a:nth-child(2) {
     content: ''; 
     position: absolute;
     top: 2650px;
-    right: -22vw;
+    right: -24vh;
     width: 900px;
     height: 900px;
     background-image: url(images/tetheredastronaut.png);
