@@ -504,7 +504,9 @@ aside li a:nth-child(2) {
         display: none;
     }
 
-
+    .main.supporting {
+        margin-right: 40%;
+    }
 
     .main.supporting div:first-child::before,
     #zen-supporting div:nth-child(2)::before,
@@ -534,5 +536,11 @@ aside li a:nth-child(2) {
         margin-left: 5%;
     
         border: 2px solid green;
+    }
+}
+
+@media screen and (max-width: 645px) {
+    aside {
+
     }
 }
